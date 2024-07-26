@@ -3,6 +3,7 @@ import streamlit as st
 import random
 import shutil
 import string
+import yaml
 import pdfplumber
 from hugchat import hugchat
 from hugchat.login import Login
@@ -14,11 +15,20 @@ from langchain.embeddings import HuggingFaceHubEmbeddings
 from promptTemplate import prompt4conversation, prompt4Context
 
 # Configuration
-DEFAULT_EMAIL = 'jay.design.developer@gmail.com'
-DEFAULT_PASS = '9000060553Vinay$'
-DEFAULT_TOKEN = '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'
-PDF_FOLDER_PATH = './pdf_folder'  # Set your default PDF folder path here
-CHROMA_DB_PATH = './chroma_db'  # Path where the Chroma database will be saved
+
+# Load configuration from YAML file
+def load_config(config_filename):
+    with open(config_filename, 'r') as file:
+        config = yaml.safe_load(file)
+    return config
+
+config = load_config('config.yaml')
+
+DEFAULT_EMAIL =  config['DEFAULT_EMAIL']
+DEFAULT_PASS =  config['DEFAULT_PASS']
+DEFAULT_TOKEN =  config['DEFAULT_TOKEN']
+PDF_FOLDER_PATH =  config['PDF_FOLDER_PATH']
+CHROMA_DB_PATH =  config['CHROMA_DB_PATH']
 
 # Initialize HuggingFaceHubEmbeddings
 repo_id = "sentence-transformers/all-mpnet-base-v2"
