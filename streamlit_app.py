@@ -24,11 +24,11 @@ def load_config(config_filename):
 
 config = load_config('config.yaml')
 
-DEFAULT_EMAIL =  config['DEFAULT_EMAIL']
-DEFAULT_PASS =  config['DEFAULT_PASS']
-DEFAULT_TOKEN =  config['DEFAULT_TOKEN']
-PDF_FOLDER_PATH =  config['PDF_FOLDER_PATH']
-CHROMA_DB_PATH =  config['CHROMA_DB_PATH']
+DEFAULT_EMAIL = st.secrets["DEFAULT_EMAIL"]
+DEFAULT_PASS = st.secrets["DEFAULT_PASS"]
+DEFAULT_TOKEN = st.secrets["DEFAULT_TOKEN"]
+PDF_FOLDER_PATH = st.secrets["PDF_FOLDER_PATH"]
+CHROMA_DB_PATH = st.secrets["CHROMA_DB_PATH"]
 
 # Initialize HuggingFaceHubEmbeddings
 repo_id = "sentence-transformers/all-mpnet-base-v2"
