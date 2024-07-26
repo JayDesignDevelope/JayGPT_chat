@@ -16,14 +16,6 @@ from promptTemplate import prompt4conversation, prompt4Context
 
 # Configuration
 
-# Load configuration from YAML file
-def load_config(config_filename):
-    with open(config_filename, 'r') as file:
-        config = yaml.safe_load(file)
-    return config
-
-config = load_config('config.yaml')
-
 DEFAULT_EMAIL = st.secrets["DEFAULT_EMAIL"]
 DEFAULT_PASS = st.secrets["DEFAULT_PASS"]
 DEFAULT_TOKEN = st.secrets["DEFAULT_TOKEN"]
